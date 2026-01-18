@@ -7,8 +7,10 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // Polyfill process.env for the @google/genai SDK usage in services
-      'process.env.API_KEY': JSON.stringify(env.API_KEY)
+      // Polyfill process.env for the @google/genai SDK usage
+      'process.env.API_KEY': JSON.stringify(env.API_KEY),
+      // Prevent "process is not defined" error if SDK accesses other process props
+      'process.env': {} 
     }
   };
 });
