@@ -3,14 +3,12 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
+  const env = loadEnv(mode, (process as any).cwd(), '');
   return {
     plugins: [react()],
     define: {
-      // Polyfill process.env for the @google/genai SDK usage
+      // Correctly inject the API key as a string literal
       'process.env.API_KEY': JSON.stringify(env.API_KEY),
-      // Prevent "process is not defined" error if SDK accesses other process props
-      'process.env': {} 
     }
   };
 });
