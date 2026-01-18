@@ -1,7 +1,8 @@
-// Manually declare process.env to support the API_KEY polyfill usage
-declare const process: {
-  env: {
+/// <reference types="vite/client" />
+
+declare namespace NodeJS {
+  interface ProcessEnv {
     API_KEY: string;
-    [key: string]: any;
+    [key: string]: string | undefined;
   }
-};
+}
