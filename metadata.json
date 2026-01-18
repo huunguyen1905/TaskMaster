@@ -1,0 +1,7 @@
+{
+  "name": "TaskMaster SPA",
+  "description": "A modern, standalone React migration of the Google Apps Script Task Manager. Features a mock backend with localStorage persistence, Kanban board, list views, and analytics.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
